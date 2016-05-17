@@ -18,3 +18,4 @@ stacktrace.log
 /*.war
 /*.bin
 /*.lock
+.gradle/*
