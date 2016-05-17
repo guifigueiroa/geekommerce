@@ -19,3 +19,4 @@ stacktrace.log
 /*.bin
 /*.lock
 .gradle/*
+build/*

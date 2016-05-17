@@ -15,8 +15,13 @@ class ProductTypeSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
-        expect:"fix me"
-            true == false
+    void "expect ProductType to not be null or blank"() {
+        when:
+          def type = ProductType(name: null)
+          def type2 = ProductType(name: " ")
+
+        then:
+          type.validate() == null
+          type2.validate() == null
     }
 }
