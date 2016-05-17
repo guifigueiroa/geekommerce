@@ -3,8 +3,6 @@ package gui.commerce
 class ProductType {
 
     String name
-    Date dateCreated
-    Date lastUpdated
 
     static hasMany = [products: Product]
 

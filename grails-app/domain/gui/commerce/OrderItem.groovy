@@ -9,6 +9,6 @@ class OrderItem {
 
     static constraints = {
       product nullable: false
-      quantity nullable: false
+      quantity nullable: false, min: 1, max: 100
     }
 }
