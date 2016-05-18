@@ -32,7 +32,7 @@ class OrderSpec extends Specification {
         where:
             items    | result
           orderItems | true
-          null       | false
-          [] as List | false
+          null       | true
+          [] as List | true
     }
 }

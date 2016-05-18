@@ -7,14 +7,14 @@ class Order {
     Date lastUpdated
 
     static constraints = {
-      items validator: { val, obj ->
-        if (!obj?.items || !obj?.items?.size()) {
-          return 'order.validator.hasnoitems.error'
-        }
-      }
+
     }
 
     static mapping = {
       table "`order`"
+    }
+
+    String toString(){
+      id
     }
 }

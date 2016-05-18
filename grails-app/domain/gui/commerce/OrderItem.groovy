@@ -11,4 +11,8 @@ class OrderItem {
       product nullable: false
       quantity nullable: false, min: 1, max: 100
     }
+
+    String toString(){
+      "${quantity} x ${product}"
+    }
 }

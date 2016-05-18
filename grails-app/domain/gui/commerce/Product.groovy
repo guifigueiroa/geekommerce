@@ -16,4 +16,8 @@ class Product {
       type nullable: false
       image nullable: true, maxSize: 65536
     }
+
+    String toString(){
+      "${name} (${value})"
+    }
 }

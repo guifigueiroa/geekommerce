@@ -9,4 +9,8 @@ class ProductType {
     static constraints = {
       name nullable:false, blank: false, maxSize: 64, unique: true
     }
+
+    String toString(){
+      name
+    }
 }
