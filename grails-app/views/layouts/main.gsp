@@ -14,32 +14,65 @@
 </head>
 <body>
 
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/#">
-                    <i class="fa grails-icon">
-                        <asset:image src="grails-cupsonly-logo-white.svg"/>
-                    </i> Grails
-                </a>
-            </div>
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <g:pageProperty name="page.nav" />
-                </ul>
-            </div>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">GEEK.KOMMERCE</a>
         </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">HOME</a></li>
+            <li><a href="#">PRODUCTS</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">SINGLE POST</a></li>
+                <li><a href="#">PORTFOLIO</a></li>
+                <li><a href="#">SINGLE PROJECT</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
 
     <g:layoutBody/>
 
-    <div class="footer" role="contentinfo"></div>
+    <div id="footerwrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4>About</h4>
+                    <div class="hline-w"></div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Social Links</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Our Bunker</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        Some Ave, 987,<br/>
+                        23890, New York,<br/>
+                        United States.<br/>
+                    </p>
+                </div>
+
+            </div><!--/row -->
+        </div><!--/container -->
+     </div><!--/footerwrap -->
 
     <div id="spinner" class="spinner" style="display:none;">
         <g:message code="spinner.alt" default="Loading&hellip;"/>
