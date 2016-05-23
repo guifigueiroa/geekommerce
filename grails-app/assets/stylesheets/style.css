@@ -14,7 +14,7 @@
 @import url("hoverex-all.css") screen;
 
 /*  ################################################################
-  1. GENERAL STRUCTURES
+  GENERAL STRUCTURES
 ################################################################# */
   * {
     margin: 0;
@@ -29,6 +29,22 @@ body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   }
+
+#content {
+  margin-top: 60px;
+  padding-top: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-left: 20px;
+}
+
+container {
+  margin-top: 60px;
+  padding-top: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-left: 20px;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
@@ -149,20 +165,27 @@ a:focus {
 
 #blue {
   background: #00b3fe;
+  color: white;
+  padding-left: 15px;
   margin-top: 60px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
-
-#blue h3 {
+#red {
+  background: #ff1a1a;
+  padding-left: 15px;
   color: white;
-  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 /* Footer */
 #footerwrap {
+  margin-top: 40px;
   padding-top: 60px;
   padding-bottom: 60px;
   background: #384452;

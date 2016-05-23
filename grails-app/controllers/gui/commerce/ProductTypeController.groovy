@@ -6,8 +6,43 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class ProductTypeController {
 
+    static allowedMethods = [save: "POST", delete: "DELETE"]
+
     def index(Integer max) {
       params.max = Math.min(max ?: 10, 100)
       respond ProductType.list(params)
+    }
+
+    def create() {
+      respond new ProductType(params)
+    }
+
+    @Transactional
+    def save(ProductType productType) {
+      if(productType?.save(flush:true)) {
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: 'productType.label', default: 'ProductType'), productType.id])
+                redirect action: "index", method: "GET"
+            }
+            '*' { respond productType, [status: CREATED] }
+        }
+      } else {
+        transactionStatus.setRollbackOnly()
+        if(productType?.hasErrors())
+          respond productType.errors, view:'create'
+        else
+          notFound()
+      }
+    }
+
+    protected void notFound() {
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'productType.label', default: 'ProductType'), params.id])
+                redirect action: "index", method: "GET"
+            }
+            '*'{ render status: NOT_FOUND }
+        }
     }
 }

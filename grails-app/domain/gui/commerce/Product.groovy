@@ -4,9 +4,10 @@ class Product {
 
     String name
     double value
-    byte[] image
     Date dateCreated
     Date lastUpdated
+    String url
+    MysteryBoxItem boxItem
 
     static belongsTo = [type: ProductType]
 
@@ -14,6 +15,6 @@ class Product {
       name nullable: false, blank: false, maxSize: 150
       value nullable: false, max: 10000.0d, scale: 2
       type nullable: false
-      image nullable: true, maxSize: 65536
+      boxItem nullable: true
     }
 }

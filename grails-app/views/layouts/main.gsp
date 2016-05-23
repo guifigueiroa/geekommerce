@@ -28,15 +28,14 @@
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">HOME</a></li>
-            <li><a href="#">PRODUCTS</a></li>
+            <li class="active"><a href="#"><g:message code="menu.home" /></a></li>
+            <li><a href="#"><g:message code="menu.mysteryBoxes" /></a></li>
+            <li><a href="#"><g:message code="menu.buy" /></a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.account" /><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">BLOG</a></li>
-                <li><a href="#">SINGLE POST</a></li>
-                <li><a href="#">PORTFOLIO</a></li>
-                <li><a href="#">SINGLE PROJECT</a></li>
+                <li><a href="#"><g:message code="menu.myProducts" /></a></li>
+                <li><a href="#"><g:message code="menu.logout" /></a></li>
               </ul>
             </li>
           </ul>
