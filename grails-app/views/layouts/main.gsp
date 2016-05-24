@@ -24,13 +24,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">GEEK.KOMMERCE</a>
+          <a class="navbar-brand" href="${createLink(uri: '/')}">GEEK.KOMMERCE</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><g:message code="menu.home" /></a></li>
-            <li><a href="#"><g:message code="menu.mysteryBoxes" /></a></li>
-            <li><a href="#"><g:message code="menu.buy" /></a></li>
+            <geek:li><a href="${createLink(uri: '/')}"><g:message code="menu.home" /></a></geek:li>
+            <geek:li><a href="#"><g:message code="menu.mysteryBoxes" /></a></geek:li>
+            <geek:li><a href="#"><g:message code="menu.buy" /></a></geek:li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.account" /><b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -49,9 +49,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h4>About</h4>
+                    <h4>Sobre</h4>
                     <div class="hline-w"></div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <p>Site focado na cultura nerd que tem como objetivo listar as Mystery Boxes disponíveis no Brasil, para podermos compará-las e compartilhar itens à venda.</p>
                 </div>
                 <div class="col-lg-4">
                     <h4>Social Links</h4>
@@ -60,13 +60,10 @@
                     </p>
                 </div>
                 <div class="col-lg-4">
-                    <h4>Our Bunker</h4>
+                    <h4>Ajude-nos</h4>
                     <div class="hline-w"></div>
-                    <p>
-                        Some Ave, 987,<br/>
-                        23890, New York,<br/>
-                        United States.<br/>
-                    </p>
+                    <p>Vocẽ pode nos ajudar postando novidades sobre as mystery boxes, como novos produtos, spoilers e erros em nosso site.</p>
+                    <p>Mande um email para: geekommerce@gmail.com</p>
                 </div>
 
             </div><!--/row -->

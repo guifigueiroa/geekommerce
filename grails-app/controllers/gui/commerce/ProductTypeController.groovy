@@ -3,6 +3,7 @@ package gui.commerce
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
+@Mixin(ControllerUtil)
 @Transactional(readOnly = true)
 class ProductTypeController {
 
@@ -32,17 +33,7 @@ class ProductTypeController {
         if(productType?.hasErrors())
           respond productType.errors, view:'create'
         else
-          notFound()
+          notFound({redirect action: "index", method: "GET"})
       }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'productType.label', default: 'ProductType'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
     }
 }

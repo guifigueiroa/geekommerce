@@ -10,15 +10,7 @@
             <h3><g:message code="default.create.label" args="[entityName]" /></h3>
         </div>
 
-
-        <g:hasErrors bean="${this.productType}">
-            <div id="red" role="status">
-                <g:eachError bean="${this.productType}" var="error">
-                    <b><g:message error="${error}"/></b>
-                </g:eachError>
-            </div>
-        </g:hasErrors>
-
+        <geek:messages />
 
         <div class="container">
             <div class="row">
