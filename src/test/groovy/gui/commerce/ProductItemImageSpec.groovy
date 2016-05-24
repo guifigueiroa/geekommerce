@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Image)
-class ImageSpec extends Specification {
+@TestFor(ProductImage)
+class ProductImageSpec extends Specification {
 
     def setup() {
     }
