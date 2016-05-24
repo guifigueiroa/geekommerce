@@ -14,11 +14,11 @@ import spock.lang.Shared
 class ProductSpec extends Specification {
 
     @Shared electronics
-    @Shared image
+    @Shared aURL
 
     def setupSpec() {
       electronics = new ProductType(name: "Electronics")
-      image = new byte[0]
+      aURL = "http://www.google.com"
     }
 
     def cleanup() {
@@ -29,14 +29,14 @@ class ProductSpec extends Specification {
           new Product(name: name,
                       type: type,
                       value: value,
-                      image: image).validate() == result
+                      url: url).validate() == result
         where:
-          name  |     type     | value | image | result
-          "TV"  | electronics  | 10.99 | image | true
-          "TV"  | electronics  |  2.99 | null  | true
-          null  | electronics  | 99.99 | image | false
-          "TV"  | null         | 56.00 | image | false
-          "TV"  | electronics  |  null | image | false
-          "TV"  | electronics  | 10002 | image | false
+          name  |     type     | value | url  | result
+          "TV"  | electronics  | 10.99 | aURL | true
+          null  | electronics  | 99.99 | aURL | false
+          "TV"  | null         | 56.00 | aURL | false
+          "TV"  | electronics  |  null | aURL | false
+          "TV"  | electronics  | 10.99 | null | false
+          "TV"  | electronics  | 10002 | aURL | false
     }
 }
