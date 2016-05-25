@@ -37,6 +37,10 @@ class MysteryBoxController {
       }
     }
 
+    def show(MysteryBox box) {
+      respond box
+    }
+
     def image(long id) {
       MysteryBox box = MysteryBox.get(id)
       response.setContentType('image/png')

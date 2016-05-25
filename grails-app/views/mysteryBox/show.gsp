@@ -15,19 +15,16 @@
 
         <div class="container">
 
-
             <div class="row">
-                <g:each var="box" in="${mysteryBoxList}">
-                    <div class="col-sm-10">
-                        <g:render template="box" collection="${box}" var="box"/>
-                    </div>
-                </g:each>
+                <div class="col-sm-12">
+                    <geek:image obj="${mysteryBox}" />
+                </div>
             </div>
 
             <div class="row">
-                <g:link class="create" action="create">
+                <g:link controller="MysteryBoxEdition" action="create" params="${[box_id: mysteryBox.id]}">
                     <button type="button" class="btn btn-primary">
-                        <g:message code="default.new.label" args="[entityName]" />
+                        <g:message code="default.new.label" args="${message(code:'mysteryBoxEdition.label')}" />
                     </button>
                 </g:link>
             </div>

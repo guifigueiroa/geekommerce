@@ -29,7 +29,9 @@ class GeekTagLib {
       def active = "menu.home"
       if(controllerName == "productType"){
         active = "menu.buy"
-      } else if (controllerName == "mysteryBox") {
+      } else if (controllerName == "mysteryBox"
+              || controllerName == "mysteryBoxEdition"
+              || controllerName == "mysteryBoxItem") {
         active = "menu.mysteryBoxes"
       }
 
@@ -44,10 +46,9 @@ class GeekTagLib {
     }
 
     def image = {attrs, body ->
-      if (attrs.mysteryBox?.image) {
-        def link = g.createLink(controller:'MysteryBox',
-                                action:'image',
-                                id: attrs.mysteryBox.id)
+      if (attrs.obj?.image) {
+        def link = g.createLink(action:'image',
+                                id: attrs.obj.id)
         out << "<img src=\"${link}\" class=\"img-responsive\" />"
       }
     }

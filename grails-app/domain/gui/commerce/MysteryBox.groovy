@@ -9,7 +9,7 @@ class MysteryBox {
     boolean freight
     byte[] image
 
-    static hasMany = [items: MysteryBoxItem]
+    static hasMany = [editions: MysteryBoxEdition]
 
     static constraints = {
       name nullable: false, blank: false, maxSize: 150, unique: true

@@ -2,15 +2,15 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
+    <title><g:message code="home.title" /></title>
 
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+    <!--asset:link rel="icon" href="favicon.ico" type="image/x-ico" /-->
 </head>
 <body>
-    <div id="content" role="main">
-        <section>
-            <h1>Welcome to Grails</h1>
-
+    <div id="blue">
+        <h1>Bem-vindo ao Geek.kommerce</h1>
+    </div>
+    <div class="container">
             <div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>
                 <ul>
@@ -21,7 +21,6 @@
                     </g:each>
                 </ul>
             </div>
-        </section>
     </div>
 
 </body>

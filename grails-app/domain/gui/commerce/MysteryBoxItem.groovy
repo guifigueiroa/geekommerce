@@ -4,7 +4,7 @@ class MysteryBoxItem {
 
     String name
 
-    static belongsTo = [box: MysteryBox]
+    static belongsTo = [edition: MysteryBoxEdition]
     static hasMany = [products: Product]
 
     static constraints = {
