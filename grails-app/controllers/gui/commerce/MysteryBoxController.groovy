@@ -39,13 +39,9 @@ class MysteryBoxController {
 
     def image(long id) {
       MysteryBox box = MysteryBox.get(id)
-      // qual o tipo do arquivo baixado?
       response.setContentType('image/png')
-      // definimos o nome do arquivo
       response.setHeader('Content-disposition', 'attachment;filename=image')
-      // o tamanho do arquivo baixado
       response.setHeader('Content-Length', box.image.length.toString())
-      // finalmente, o download
       response.outputStream << box.image
     }
 }
