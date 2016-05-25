@@ -29,7 +29,7 @@
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
             <geek:li><a href="${createLink(uri: '/')}"><g:message code="menu.home" /></a></geek:li>
-            <geek:li><a href="#"><g:message code="menu.mysteryBoxes" /></a></geek:li>
+            <geek:li><a href="${createLink(controller: 'mysteryBox', action: 'index')}"><g:message code="menu.mysteryBoxes" /></a></geek:li>
             <geek:li><a href="#"><g:message code="menu.buy" /></a></geek:li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.account" /><b class="caret"></b></a>

@@ -189,6 +189,11 @@ a:focus {
   padding-bottom: 5px;
 }
 
+.crop {
+    max-height: 300px;
+    overflow: hidden;
+}
+
 /* Footer */
 #footerwrap {
   margin-top: 40px;

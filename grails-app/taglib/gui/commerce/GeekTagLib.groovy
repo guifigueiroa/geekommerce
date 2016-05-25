@@ -29,6 +29,8 @@ class GeekTagLib {
       def active = "menu.home"
       if(controllerName == "productType"){
         active = "menu.buy"
+      } else if (controllerName == "mysteryBox") {
+        active = "menu.mysteryBoxes"
       }
 
       if(body().contains(g.message(code: active))){
@@ -46,7 +48,7 @@ class GeekTagLib {
         def link = g.createLink(controller:'MysteryBox',
                                 action:'image',
                                 id: attrs.mysteryBox.id)
-        out << "<img src=\"${link}\"/>"
+        out << "<img src=\"${link}\" class=\"img-responsive\" />"
       }
     }
 }
