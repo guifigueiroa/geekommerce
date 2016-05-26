@@ -17,4 +17,8 @@ class MysteryBox {
       defaultProducts nullable: false, blank: false, maxSize: 400
       image nullable: false, maxSize: 2**20
     }
+
+    String toString(){
+      name
+    }
 }

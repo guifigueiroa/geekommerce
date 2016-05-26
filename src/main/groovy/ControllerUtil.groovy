@@ -1,3 +1,5 @@
+import static org.springframework.http.HttpStatus.*
+
 class ControllerUtil {
   def notFound(action) {
         request.withFormat {
@@ -7,5 +9,28 @@ class ControllerUtil {
             }
             '*'{ render status: NOT_FOUND }
         }
-    }
+  }
+
+  def saveObj(obj, transactionStatus) {
+    if(obj.save(flush:true)) {
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: "${getName(obj)}.label"), obj.id])
+                redirect action: "index", method: "GET"
+            }
+            '*' { respond obj, [status: CREATED] }
+        }
+      } else {
+        transactionStatus.setRollbackOnly()
+        if(obj?.hasErrors())
+          respond obj.errors, view:'create'
+        else
+          notFound({redirect action: "index", method: "GET"})
+      }
+  }
+
+  private String getName(Object obj) {
+    String className = obj.getClass().getSimpleName().toString()
+    return className[0].toLowerCase() + className.drop(1)
+  }
 }

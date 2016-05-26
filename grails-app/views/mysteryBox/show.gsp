@@ -22,7 +22,7 @@
             </div>
 
             <div class="row">
-                <g:link controller="MysteryBoxEdition" action="create" params="${[box_id: mysteryBox.id]}">
+                <g:link controller="MysteryBoxEdition" action="create" params="${['box.id': mysteryBox.id]}">
                     <button type="button" class="btn btn-primary">
                         <g:message code="default.new.label" args="${message(code:'mysteryBoxEdition.label')}" />
                     </button>

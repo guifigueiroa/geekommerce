@@ -14,9 +14,6 @@
 
         <div class="container">
             <div class="row">
-                <g:render template="box" contextPath="../mysteryBox" collections="${mysteryBoxEdition?.box}" var="box" />
-            </div>
-            <div class="row">
                 <div class="col-md-6">
                     <g:form action="save" enctype="multipart/form-data">
                         <div class="form-group">
@@ -25,13 +22,20 @@
                                 <g:textField class="form-control input-lg" name="theme"/>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group date-picker">
                                 <label for="date"><g:message code="mysteryBoxEdition.date" />:</label>
-                                <g:datePicker name="date" value="${new Date()}"
-                                    noSelection="['':'-Choose-']" precision="month"
+                                <g:datePicker class="form-control" name="date" value="${new Date()}"
+                                    precision="month"
                                     years="${2010..2020}" />
                             </div>
 
+                            <div class="form-group">
+                                <label for="box"><g:message code="mysteryBox.label" />:</label>
+                                <g:select name="box"
+                                  from="${gui.commerce.MysteryBox.list()}"
+                                  value="${params.box?.id}"
+                                  optionKey="id" />
+                            </div>
                             <div class="form-group">
                                 <label for="image"><g:message code="mysteryBoxEdition.image" />:</label><br/>
                                 <input type="file" name="image"/>

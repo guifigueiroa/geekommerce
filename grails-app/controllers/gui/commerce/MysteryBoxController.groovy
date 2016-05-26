@@ -20,21 +20,7 @@ class MysteryBoxController {
 
     @Transactional
     def save(MysteryBox mysteryBox) {
-      if(mysteryBox.save(flush:true)) {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'mysteryBox.label', default: 'Mystery Box'), mysteryBox.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { respond mysteryBox, [status: CREATED] }
-        }
-      } else {
-        transactionStatus.setRollbackOnly()
-        if(mysteryBox?.hasErrors())
-          respond mysteryBox.errors, view:'create'
-        else
-          notFound({redirect action: "index", method: "GET"})
-      }
+      saveObj(mysteryBox, transactionStatus)
     }
 
     def show(MysteryBox box) {

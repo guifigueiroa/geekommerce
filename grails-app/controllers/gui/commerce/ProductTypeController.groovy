@@ -20,20 +20,6 @@ class ProductTypeController {
 
     @Transactional
     def save(ProductType productType) {
-      if(productType?.save(flush:true)) {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'productType.label', default: 'ProductType'), productType.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { respond productType, [status: CREATED] }
-        }
-      } else {
-        transactionStatus.setRollbackOnly()
-        if(productType?.hasErrors())
-          respond productType.errors, view:'create'
-        else
-          notFound({redirect action: "index", method: "GET"})
-      }
+      saveObj(productType, transactionStatus)
     }
 }
