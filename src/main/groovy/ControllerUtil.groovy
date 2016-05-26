@@ -11,21 +11,25 @@ class ControllerUtil {
         }
   }
 
-  def saveObj(obj, transactionStatus) {
+  def saveObj(obj, transactionStatus, onSuccess=null) {
+    onSuccess = onSuccess ?: {redirect action: "index", method: "GET"}
     if(obj.save(flush:true)) {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: "${getName(obj)}.label"), obj.id])
-                redirect action: "index", method: "GET"
+                onSuccess()
             }
             '*' { respond obj, [status: CREATED] }
         }
       } else {
         transactionStatus.setRollbackOnly()
-        if(obj?.hasErrors())
+        if(obj?.hasErrors()) {
           respond obj.errors, view:'create'
-        else
-          notFound({redirect action: "index", method: "GET"})
+        } else {
+          notFound(onSuccess)
+        }
+
+
       }
   }
 

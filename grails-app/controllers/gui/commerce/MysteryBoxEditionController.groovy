@@ -12,7 +12,9 @@ class MysteryBoxEditionController {
     }
 
     @Transactional
-    def save(MysteryBoxEdition edition) {
-      saveObj(edition, transactionStatus)
+    def save(MysteryBoxEdition edition){
+      saveObj(edition, transactionStatus) {
+        redirect controller: "mysteryBox", action: "index", method: "GET"
+      }
     }
 }

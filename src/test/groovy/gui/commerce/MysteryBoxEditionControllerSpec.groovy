@@ -53,7 +53,7 @@ class MysteryBoxEditionControllerSpec extends Specification {
             controller.save(mysteryBoxEdition)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/mysteryBoxEdition/index'
+            response.redirectedUrl == '/mysteryBox/index'
             controller.flash.message != null
             MysteryBoxEdition.count() == 1
     }
