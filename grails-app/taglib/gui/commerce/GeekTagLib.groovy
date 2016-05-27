@@ -49,7 +49,16 @@ class GeekTagLib {
       if (attrs.obj?.image) {
         def link = g.createLink(action:'image',
                                 id: attrs.obj.id)
-        out << "<img src=\"${link}\" class=\"img-responsive\" />"
+        out << "<img src=\"${link}\" ${otherAttr(attrs,"obj")}/>"
       }
+    }
+
+    def otherAttr(attrs, except=[]) {
+      def otherAttr = ""
+      attrs.each { prop, val ->
+        if(!(prop in except))
+          otherAttr += "${prop}=\"${val}\" "
+      }
+      return otherAttr
     }
 }

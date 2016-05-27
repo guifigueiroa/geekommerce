@@ -14,4 +14,8 @@ class MysteryBoxEdition {
       theme nullable: false, blank: false, maxSize: 150
       image nullable: false, maxSize: 2**20
     }
+
+    static mapping = {
+      items fetch: 'join'
+    }
 }

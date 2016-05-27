@@ -28,8 +28,6 @@ class ControllerUtil {
         } else {
           notFound(onSuccess)
         }
-
-
       }
   }
 

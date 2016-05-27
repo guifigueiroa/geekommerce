@@ -15,7 +15,6 @@
 
         <div class="container">
 
-
             <div class="row">
                 <g:each var="box" in="${mysteryBoxList}">
                     <div class="col-sm-10">

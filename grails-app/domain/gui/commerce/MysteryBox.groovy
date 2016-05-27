@@ -18,6 +18,10 @@ class MysteryBox {
       image nullable: false, maxSize: 2**20
     }
 
+    static mapping = {
+      editions fetch: 'join'
+    }
+
     String toString(){
       name
     }

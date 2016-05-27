@@ -60,11 +60,6 @@ p {
   margin-top: 10px;
 }
 
-img {
-  height: auto;
-  max-width: 100%;
-}
-
 a {
   padding: 0;
   margin: 0;
@@ -190,8 +185,19 @@ a:focus {
 }
 
 .crop {
-    max-height: 300px;
-    overflow: hidden;
+  margin: 0 auto;
+  overflow:hidden;
+  position: relative;
+  height: 300px;
+}
+
+.crop img{
+  position: absolute;
+  top:0;
+  bottom:0;
+  margin:auto;
+  height: auto;
+  max-width: 100%;
 }
 
 .form-group select {
