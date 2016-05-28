@@ -26,16 +26,23 @@
                             <div class="media-body">
                                 <h4 class="media-heading"><%= edition.theme %></h4>
                                 <ul class="list-group">
-                                    <g:each var="item" in="${edition.items}">
-                                        <li class="list-group-item"><%= item.name %></li>
-                                    </g:each>
+                                    <div id="items">
+                                        <g:each var="item" in="${edition.items}">
+                                            <li class="list-group-item"><%= item.name %></li>
+                                        </g:each>
+                                    </div>
                                     <li class="list-group-item">
-                                        <g:form action="save" controller="mysteryBoxItem" class="form-inline">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Novo item">
+                                        <div id="error"></div>
+                                        <div class="row">
+                                            <div class="col-md-9 col-sm-10 col-xs-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Novo item" id="name">
+                                                </div>
                                             </div>
-                                            <button type="submit" class="btn btn-default">Adicionar</button>
-                                        </g:form>
+                                            <div class="col-md-2">
+                                                <button id="add-box-item" class="btn btn-default">Adicionar</button>
+                                            </div>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

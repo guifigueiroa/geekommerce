@@ -19,12 +19,19 @@ class ControllerUtil {
                 flash.message = message(code: 'default.created.message', args: [message(code: "${getName(obj)}.label"), obj.id])
                 onSuccess()
             }
+            json {
+              respond obj, [status: CREATED, formats:['json']]
+            }
             '*' { respond obj, [status: CREATED] }
         }
       } else {
         transactionStatus.setRollbackOnly()
         if(obj?.hasErrors()) {
-          respond obj.errors, view:'create'
+          request.withFormat {
+            json { respond obj.errors, [status: UNPROCESSABLE_ENTITY, formats:['json']] }
+            '*' { respond obj.errors, view:'create' }
+          }
+
         } else {
           notFound(onSuccess)
         }

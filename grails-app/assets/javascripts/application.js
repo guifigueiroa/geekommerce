@@ -19,3 +19,23 @@ if (typeof jQuery !== 'undefined') {
         });
     })(jQuery);
 }
+
+
+$("#add-box-item").click(function(){
+  var name = $("#name").val();
+  $.ajax({
+    type: "POST",
+    url: "/productType/save",
+    contentType: "application/json",
+    dataType: 'json',
+    data: JSON.stringify({ name: name }),
+    success: function( msg ) {
+      $( "#error" ).html("");
+      $( "#items" ).append( "<li class=\"list-group-item\">"+name+"</li>" );
+    },
+    error: function (jqXHR, exception) {
+      var obj = JSON.parse(jqXHR.responseText);
+      $( "#error" ).html(obj.errors[0].message);
+    }
+  });
+});
