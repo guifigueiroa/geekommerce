@@ -27,12 +27,16 @@ class GeekTagLib {
 
     def li = {attrs, body ->
       def active = "menu.home"
-      if(controllerName == "productType"){
-        active = "menu.buy"
-      } else if (controllerName == "mysteryBox"
-              || controllerName == "mysteryBoxEdition"
-              || controllerName == "mysteryBoxItem") {
-        active = "menu.mysteryBoxes"
+      switch(controllerName) {
+        case ~/^mysteryBox.*/:
+          active = "menu.mysteryBoxes"
+          break
+        case "user":
+          active = "menu.login"
+          break
+        case "productType":
+          active = "menu.buy"
+          break
       }
 
       if(body().contains(g.message(code: active))){

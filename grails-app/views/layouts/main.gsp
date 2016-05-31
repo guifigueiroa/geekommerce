@@ -31,13 +31,18 @@
             <geek:li><a href="${createLink(uri: '/')}"><g:message code="menu.home" /></a></geek:li>
             <geek:li><a href="${createLink(controller: 'mysteryBox', action: 'index')}"><g:message code="menu.mysteryBoxes" /></a></geek:li>
             <geek:li><a href="#"><g:message code="menu.buy" /></a></geek:li>
+            <g:if test="${session.user}">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.account" /><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><g:message code="menu.myProducts" /></a></li>
-                <li><a href="#"><g:message code="menu.logout" /></a></li>
+                <li><a href="${createLink(controller: 'user', action: 'logout')}"><g:message code="menu.logout" /></a></li>
               </ul>
             </li>
+            </g:if>
+            <g:else>
+                <geek:li><a href="${createLink(controller: 'user', action: 'login')}"><g:message code="menu.login" /></a></geek:li>
+            </g:else>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
