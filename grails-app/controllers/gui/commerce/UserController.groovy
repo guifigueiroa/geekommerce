@@ -1,5 +1,10 @@
 package gui.commerce
 
+import static org.springframework.http.HttpStatus.*
+import grails.transaction.Transactional
+
+@Mixin(ControllerUtil)
+@Transactional(readOnly = true)
 class UserController {
 
     def login() {
@@ -35,20 +40,19 @@ class UserController {
 
     }
 
+    @Transactional
     def save(){
       def user = new User(params)
-      if (params.password != params.confirm) {
+      if (params.password != params.confirmPassword) {
          flash.message = g.message(code: "user.passwordDoesntMatch")
          redirect action:'create'
          return
       }
 
       user.password = params.password.encodeAsPassword()
-      if (user.save()) {
+      saveObj(user, transactionStatus) {
+        session.user = user
         redirect uri:'/'
-      } else {
-        flash.user = user
-        redirect(action:'register')
       }
     }
 }

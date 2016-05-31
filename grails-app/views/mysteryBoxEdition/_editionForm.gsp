@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-md-6">
-            <g:if test="${controllerName == 'mysteryBoxEdition'}">
+            <g:if test="${controllerName == 'mysteryBoxEdition' && edition}">
             <label><g:message code="mysteryBoxEdition.items" /></label>
             <g:render template="edition" var="edition" bean="${edition}" />
             </g:if>

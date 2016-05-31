@@ -1,4 +1,3 @@
-<div style="width: 100%">
 <ul class="list-group">
     <div id="items-${edition.id}">
         <g:each var="item" in="${edition.items}">
@@ -22,4 +21,3 @@
     </li>
     </g:if>
 </ul>
-</div>

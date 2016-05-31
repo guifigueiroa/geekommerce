@@ -5,9 +5,8 @@
     <title><g:message code="login.title" /></title>
 </head>
 <body>
-    <geek:messages />
-
     <div id="content">
+        <geek:messages />
         <div class="container">
             <g:form action="doLogin" method="post" class="form-signin">
                 <h3 class="form-signin-heading">Entre no Geek kommerce  </h3>
