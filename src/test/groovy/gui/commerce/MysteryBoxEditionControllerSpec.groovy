@@ -57,4 +57,54 @@ class MysteryBoxEditionControllerSpec extends Specification {
             controller.flash.message != null
             MysteryBoxEdition.count() == 1
     }
+
+
+    void "Test that the edit action returns the correct model"() {
+        when:"The edit action is executed with a null domain"
+            controller.edit(null)
+
+        then:"A 404 error is returned"
+            response.status == 404
+
+        when:"A domain instance is passed to the edit action"
+            populateValidParams(params)
+            def mysteryBoxEdition = new MysteryBoxEdition(params)
+            controller.edit(mysteryBoxEdition)
+
+        then:"A model is populated containing the domain instance"
+            model.mysteryBoxEdition == mysteryBoxEdition
+    }
+
+    void "Test the update action performs an update on a valid domain instance"() {
+        when:"Update is called for a domain instance that doesn't exist"
+            request.contentType = FORM_CONTENT_TYPE
+            request.method = 'PUT'
+            controller.update(null)
+
+        then:"A 404 error is returned"
+            response.redirectedUrl == '/mysteryBox/index'
+            flash.message != null
+
+        when:"An invalid domain instance is passed to the update action"
+            response.reset()
+            def mysteryBoxEdition = new MysteryBoxEdition()
+            mysteryBoxEdition.id = 1 // for testing purposes
+            mysteryBoxEdition.validate()
+            controller.update(mysteryBoxEdition)
+
+        then:"The edit view is rendered again with the invalid instance"
+            view == 'edit'
+            model.mysteryBoxEdition == mysteryBoxEdition
+
+        when:"A valid domain instance is passed to the update action"
+            response.reset()
+            populateValidParams(params)
+            mysteryBoxEdition = new MysteryBoxEdition(params).save(flush: true)
+            controller.update(mysteryBoxEdition)
+
+        then:"A redirect is issued to the mystery box index action"
+            mysteryBoxEdition != null
+            response.redirectedUrl == "/mysteryBox/index"
+            flash.message != null
+    }
 }
