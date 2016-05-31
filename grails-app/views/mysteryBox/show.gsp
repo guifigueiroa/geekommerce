@@ -16,40 +16,25 @@
         <div class="container">
 
             <div class="row">
+                <g:each var="edition" in="${mysteryBox.editions}">
                 <div class="col-md-8">
-
                     <div class="media">
-                        <g:each var="edition" in="${mysteryBox.editions}">
-                            <div class="media-left media-middle">
-                                <geek:image obj="${edition}" class="media-object" width="64px" />
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading"><%= edition.theme %></h4>
-                                <ul class="list-group">
-                                    <div id="items">
-                                        <g:each var="item" in="${edition.items}">
-                                            <li class="list-group-item"><%= item.name %></li>
-                                        </g:each>
-                                    </div>
-                                    <li class="list-group-item">
-                                        <div id="error"></div>
-                                        <div class="row">
-                                            <div class="col-md-9 col-sm-10 col-xs-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Novo item" id="name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button id="add-box-item" class="btn btn-default">Adicionar</button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </g:each>
+                        <div class="media-left media-middle">
+                            <geek:image obj="${edition}" class="media-object" width="64px" />
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><%= edition.theme %>
+                                <small>
+                                    <g:link action="edit" controller="mysteryBoxEdition" id="${edition.id}">
+                                        <g:message code="default.button.edit.label" />
+                                    </g:link>
+                                </small>
+                            </h4>
+                            <g:render template="../mysteryBoxEdition/edition" var="edition" bean="${edition}" />
+                        </div>
                     </div>
-
                 </div>
+                </g:each>
             </div>
 
             <div class="row">

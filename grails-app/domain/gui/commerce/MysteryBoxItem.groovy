@@ -8,6 +8,6 @@ class MysteryBoxItem {
     static hasMany = [products: Product]
 
     static constraints = {
-      name nullable: false, blank: false, maxSize: 150, unique: true
+      name nullable: false, blank: false, maxSize: 150
     }
 }

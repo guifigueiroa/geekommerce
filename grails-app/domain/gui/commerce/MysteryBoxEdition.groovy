@@ -17,5 +17,6 @@ class MysteryBoxEdition {
 
     static mapping = {
       items fetch: 'join'
+      items sort: 'id', order: 'asc'
     }
 }

@@ -13,10 +13,13 @@ class ControllerUtil {
 
   def saveObj(obj, transactionStatus, onSuccess=null) {
     onSuccess = onSuccess ?: {redirect action: "index", method: "GET"}
-    if(obj.save(flush:true)) {
+    def type = obj?.id ? 'edit' : 'create'
+
+    if(obj?.save(flush:true)) {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: "${getName(obj)}.label"), obj.id])
+                if(type == 'edit') type = 'update'
+                flash.message = message(code: "default.${type}d.message", args: [message(code: "${getName(obj)}.label"), obj.id])
                 onSuccess()
             }
             json {
@@ -29,7 +32,7 @@ class ControllerUtil {
         if(obj?.hasErrors()) {
           request.withFormat {
             json { respond obj.errors, [status: UNPROCESSABLE_ENTITY, formats:['json']] }
-            '*' { respond obj.errors, view:'create' }
+            '*' { respond obj.errors, view: type }
           }
 
         } else {

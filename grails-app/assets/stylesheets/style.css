@@ -90,7 +90,7 @@ a:focus {
   text-align: center
 }
 
-#error {
+.error-new-item {
   color: #f00;
 }
 
@@ -221,6 +221,10 @@ a:focus {
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.media {
+  margin-bottom: 20px;
 }
 
 /* Footer */

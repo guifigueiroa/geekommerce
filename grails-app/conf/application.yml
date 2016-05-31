@@ -26,9 +26,9 @@ environments:
     production:
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://guicommerce.cedybziiegth.eu-west-1.rds.amazonaws.com:3306/guicommerce?autoReconnect=true
-            username: ${MYSQL_USER}
-            PASSWORD: ${MYSQL_PASS}
+            url: "jdbc:mysql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}?autoReconnect=true"
+            username: "${RDS_USERNAME}"
+            PASSWORD: "${RDS_PASSWORD}"
             properties:
                 jmxEnabled: true
                 initialSize: 5

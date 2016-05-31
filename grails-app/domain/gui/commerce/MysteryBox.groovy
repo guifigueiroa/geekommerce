@@ -20,6 +20,7 @@ class MysteryBox {
 
     static mapping = {
       editions fetch: 'join'
+      editions sort: 'date', order: 'desc'
     }
 
     String toString(){
