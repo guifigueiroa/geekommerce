@@ -28,7 +28,7 @@ environments:
             dbCreate: update
             url: "jdbc:mysql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}?autoReconnect=true"
             username: "${RDS_USERNAME}"
-            PASSWORD: "${RDS_PASSWORD}"
+            password: "${RDS_PASSWORD}"
             properties:
                 jmxEnabled: true
                 initialSize: 5

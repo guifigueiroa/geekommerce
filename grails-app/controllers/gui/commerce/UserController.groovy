@@ -16,15 +16,15 @@ class UserController {
     def doLogin(){
       def user = User.findByEmail(params.email)
       if (!user) {
-         flash.message = g.message(code: "login.userNotFound", args: [params.email])
-         redirect action:'login'
-         return
+        flash.message = g.message(code: "login.userNotFound", args: [params.email])
+        redirect action:'login'
+        return
       }
 
       if (user.password != params.password.encodeAsPassword()) {
-         flash.message = g.message(code: "login.passwordIncorrect", args: [params.email])
-         redirect action:'login'
-         return
+        flash.message = g.message(code: "login.passwordIncorrect", args: [params.email])
+        redirect action:'login'
+        return
       }
 
       session.user = user
@@ -42,14 +42,16 @@ class UserController {
 
     @Transactional
     def save(){
-      def user = new User(params)
-      if (params.password != params.confirmPassword) {
+      def user = new User()
+      if (!params.password || params.password.allWhitespace
+          || params.password != params.confirmPassword) {
          flash.message = g.message(code: "user.passwordDoesntMatch")
          redirect action:'create'
          return
       }
 
-      user.password = params.password.encodeAsPassword()
+      user.email = params.email
+      user.password = params.password?.encodeAsPassword()
       saveObj(user, transactionStatus) {
         session.user = user
         redirect uri:'/'
