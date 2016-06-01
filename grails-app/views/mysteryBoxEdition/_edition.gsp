@@ -1,7 +1,7 @@
 <ul class="list-group">
     <div id="items-${edition.id}">
         <g:each var="item" in="${edition.items}">
-        <li class="list-group-item"><%= item.name %></li>
+        <li class="list-group-item"><%= item.name %> <span class="badge sell-badge">vender</span><span class="badge">2 itens à venda</span></a></li>
         </g:each>
     </div>
     <g:if test="${controllerName == 'mysteryBoxEdition'}">

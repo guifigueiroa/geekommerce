@@ -219,6 +219,10 @@ a:focus {
   margin-bottom: 20px;
 }
 
+.sell-badge {
+  background-color: #00b3fe;
+}
+
 /* Footer */
 #footerwrap {
   margin-top: 40px;
